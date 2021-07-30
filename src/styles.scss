@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@marxa/devkit/styles/all.scss';
+@import './assets/moviv.palette.scss';
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,400;1,600;1,700;1,900&family=Secular+One&display=swap');
+@include mat-core();
+
+$moviv-primary: mat-palette($mv-clara);
+$moviv-accent: mat-palette($mv-oscura, 500, 200, 700);
+$moviv-warn: mat-palette($mv-ambar);
+$moviv-typography: mat-typography-config(
+  $font-family: 'Jost',
+);
+
+$moviv-theme: mat-light-theme((
+  color: (
+    primary: $moviv-primary,
+    accent: $moviv-accent,
+    warn: $moviv-warn,
+  ),
+  typography:$moviv-typography
+));
+
+@include angular-material-theme($moviv-theme);
+
+
+html, body { height: 100%; font-size:16px }
+body { margin: 0; font-family:  'Jost', sans-serif; }
+h1 { font-weight: 700; font-size: 3em;}
+h2 { font-weight: 700; font-size: 2.5em;}
+h3 { font-family: 'Secular One', sans-serif; font-size: 2em;}
+h4 { font-family: 'Secular One', sans-serif; font-size: 1.5em;}
+h5 { font-weight: 200; font-size: 1.5em;}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "moviv-project": {
+      "hosting": {
+        "moviv": [
+          "moviv-project"
+        ]
+      }
+    }
+  }
+}
