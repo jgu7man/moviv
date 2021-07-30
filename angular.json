@@ -142,6 +142,477 @@
           "options": {}
         }
       }
+    },
+    "moviv-client": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/moviv-client",
+      "sourceRoot": "projects/moviv-client/src",
+      "prefix": "mc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/moviv-client",
+            "index": "projects/moviv-client/src/index.html",
+            "main": "projects/moviv-client/src/main.ts",
+            "polyfills": "projects/moviv-client/src/polyfills.ts",
+            "tsConfig": "projects/moviv-client/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/moviv-client/src/favicon.ico",
+              "projects/moviv-client/src/assets",
+              {
+                "input": "src/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
+            ],
+            "styles": [
+              "projects/moviv-client/src/styles.scss",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "moviv-client:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "moviv-client:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "moviv-client:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/moviv-client/src/test.ts",
+            "polyfills": "projects/moviv-client/src/polyfills.ts",
+            "tsConfig": "projects/moviv-client/tsconfig.spec.json",
+            "karmaConfig": "projects/moviv-client/karma.conf.js",
+            "assets": [
+              "projects/moviv-client/src/favicon.ico",
+              "projects/moviv-client/src/assets",
+              {
+                "input": "global/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
+            ],
+            "styles": [
+              "projects/moviv-client/src/styles.scss",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/moviv-client/tsconfig.app.json",
+              "projects/moviv-client/tsconfig.spec.json",
+              "projects/moviv-client/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/moviv-client/e2e/protractor.conf.js",
+            "devServerTarget": "moviv-client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "moviv-client:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "moviv-admin": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/moviv-admin",
+      "sourceRoot": "projects/moviv-admin/src",
+      "prefix": "ma",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/moviv-admin",
+            "index": "projects/moviv-admin/src/index.html",
+            "main": "projects/moviv-admin/src/main.ts",
+            "polyfills": "projects/moviv-admin/src/polyfills.ts",
+            "tsConfig": "projects/moviv-admin/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/moviv-admin/src/favicon.ico",
+              "projects/moviv-admin/src/assets",
+              {
+                "input": "src/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
+            ],
+            "styles": [
+              "projects/moviv-admin/src/styles.scss",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "moviv-admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "moviv-admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "moviv-admin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/moviv-admin/src/test.ts",
+            "polyfills": "projects/moviv-admin/src/polyfills.ts",
+            "tsConfig": "projects/moviv-admin/tsconfig.spec.json",
+            "karmaConfig": "projects/moviv-admin/karma.conf.js",
+            "assets": [
+              "projects/moviv-admin/src/favicon.ico",
+              "projects/moviv-admin/src/assets",
+              {
+                "input": "src/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
+            ],
+            "styles": [
+              "projects/moviv-admin/src/styles.scss",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/moviv-admin/tsconfig.app.json",
+              "projects/moviv-admin/tsconfig.spec.json",
+              "projects/moviv-admin/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/moviv-admin/e2e/protractor.conf.js",
+            "devServerTarget": "moviv-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "moviv-admin:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "moviv-talent": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/moviv-talent",
+      "sourceRoot": "projects/moviv-talent/src",
+      "prefix": "ma",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/moviv-talent",
+            "index": "projects/moviv-talent/src/index.html",
+            "main": "projects/moviv-talent/src/main.ts",
+            "polyfills": "projects/moviv-talent/src/polyfills.ts",
+            "tsConfig": "projects/moviv-talent/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/moviv-talent/src/favicon.ico",
+              "projects/moviv-talent/src/assets",
+              {
+                "input": "src/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
+            ],
+            "styles": [
+              "projects/moviv-talent/src/styles.scss",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "moviv-talent:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "moviv-talent:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "moviv-talent:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/moviv-talent/src/test.ts",
+            "polyfills": "projects/moviv-talent/src/polyfills.ts",
+            "tsConfig": "projects/moviv-talent/tsconfig.spec.json",
+            "karmaConfig": "projects/moviv-talent/karma.conf.js",
+            "assets": [
+              "projects/moviv-talent/src/favicon.ico",
+              "projects/moviv-talent/src/assets",
+              {
+                "input": "src/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
+            ],
+            "styles": [
+              "projects/moviv-talent/src/styles.scss",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/moviv-talent/tsconfig.app.json",
+              "projects/moviv-talent/tsconfig.spec.json",
+              "projects/moviv-talent/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/moviv-talent/e2e/protractor.conf.js",
+            "devServerTarget": "moviv-talent:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "moviv-talent:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "moviv"

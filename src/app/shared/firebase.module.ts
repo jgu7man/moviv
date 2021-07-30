@@ -9,19 +9,16 @@ import { AngularFireMessagingModule } from "@angular/fire/messaging";
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        AngularFirestoreModule,
-        AngularFireStorageModule,
-        AngularFireAuthModule,
-        AngularFireMessagingModule,
-    ], exports: [
-        AngularFireModule,
-        AngularFirestoreModule,
-        AngularFireStorageModule,
-        AngularFireAuthModule,
-        AngularFireMessagingModule,
-    ]
+  imports: [
+      CommonModule,
+  ],
+  exports: [
+    AngularFireModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+  ]
 })
 export class FirebaseModule {
 }
