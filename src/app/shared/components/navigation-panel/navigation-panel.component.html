@@ -1,0 +1,91 @@
+<mat-drawer-container [hasBackdrop]="true" mxBackground="#00000000">
+  <mat-drawer #drawer=matDrawer
+  [position]="'start'"
+  [mode]="'side'"
+  [opened]="responsive.large ? true : false">
+    <ng-container *ngFor="let view of workspace.views">
+      <ng-container *ngIf="view.alike; else aLonely">
+        <a class="side navbtn"
+          [routerLink]="[view.route]"
+          [routerLinkActive]="'active'"
+          [ngClass]="{ active: alikeActive.isActive }"
+          [queryParams]="view.queryParams"
+        >
+          <i class="fas {{ view.icon }} fa-lg "></i> {{view.display}}
+        </a>
+        <a hidden="true"
+        routerLink="{{ view.alike }}"
+        routerLinkActive
+        #alikeActive="routerLinkActive"
+        ></a>
+      </ng-container>
+      <ng-template #aLonely >
+        <a class="side navbtn"
+          [routerLink]="[view.route]"
+          [routerLinkActive]="'active'"
+          [queryParams]="view.queryParams"
+        >
+          <i class="fas {{ view.icon }} fa-lg "></i> {{view.display}}
+        </a>
+      </ng-template>
+    <mat-divider [inset]="true"></mat-divider>
+    </ng-container>
+  </mat-drawer>
+  <mat-drawer-content id="app-content">
+
+    <!-- TOPBAR -->
+    <mat-toolbar id="topbar" mxBackground="#000">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" *ngIf="navigation.backIcon">
+        <i class="fas fa-chevron-left fa-lg "></i>
+      </button>
+      <span id="logo">
+        <div class="logo-container">
+          <img [src]="'assets/img/Banner2.webp'" [alt]="'moviv logo oficial'">
+        </div>
+      </span>
+      <span class="spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" [disabled]="!navigation.userInteraction">
+        <i class="fas fa-heart fa-lg" *ngIf="navigation.userInteraction"></i>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [disabled]="!navigation.userInteraction">
+        <i class="fas fa-share fa-lg" *ngIf="navigation.userInteraction"></i>
+      </button>
+    </mat-toolbar>
+
+    <!-- CONTENT -->
+    <ng-content></ng-content>
+
+    <!-- BOTTOMBAR -->
+    <ng-container *ngIf="!responsive.large">
+      <mat-toolbar id="bottombar" mxBackground="#000">
+        <ng-container *ngFor="let view of workspace.views">
+          <ng-container *ngIf="view.alike; else lonely">
+            <button type="button" mat-icon-button color="primary" class="navbtn">
+              <i class="fas {{ view.icon }} fa-lg"
+                [routerLink]="[view.route]"
+                [queryParams]="view.queryParams"
+                [routerLinkActive]="'active'"
+                [ngClass]="{ active: alikeActive.isActive }"
+              ></i>
+            </button>
+            <a hidden="true"
+              routerLink="{{ view.alike }}"
+              routerLinkActive
+              #alikeActive="routerLinkActive"
+            ></a>
+          </ng-container>
+          <ng-template #lonely >
+            <button type="button" mat-icon-button color="primary" class="navbtn">
+              <i class="fas {{ view.icon }} fa-lg"
+                [routerLink]="[view.route]"
+                [queryParams]="view.queryParams"
+                [routerLinkActive]="'active'"
+              ></i>
+            </button>
+          </ng-template>
+
+        </ng-container>
+      </mat-toolbar>
+    </ng-container>
+  </mat-drawer-content>
+</mat-drawer-container>

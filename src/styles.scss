@@ -4,27 +4,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200;1,400;1,600;1,700;1,900&family=Secular+One&display=swap');
 @include mat-core();
 
-$moviv-primary: mat-palette($mv-clara);
-$moviv-accent: mat-palette($mv-oscura, 500, 200, 700);
-$moviv-warn: mat-palette($mv-ambar);
-$moviv-typography: mat-typography-config(
-  $font-family: 'Jost',
-);
+$moviv-typography: mat-typography-config($font-family: 'Jost', );
+$moviv-warn: mat-palette($mat-red, 400);
 
-$moviv-theme: mat-light-theme((
+// CLARA THEME
+$clara-primary: mat-palette($mv-clara, 500);
+$clara-accent: mat-palette($mv-oscura, 500, 200, 700);
+$clara-theme: mat-dark-theme((
   color: (
-    primary: $moviv-primary,
-    accent: $moviv-accent,
+    primary: $clara-primary,
+    accent: $clara-accent,
     warn: $moviv-warn,
   ),
   typography:$moviv-typography
 ));
+// @include angular-material-theme($clara-theme);
+.clara-theme {
+  @include angular-material-theme($clara-theme);
+}
 
-@include angular-material-theme($moviv-theme);
+// AMBAR THEME
+$ambar-primary: mat-palette($mv-ambar, 500);
+$ambar-accent: mat-palette($mv-clara, 400, 200, 600);
+$ambar-theme: mat-dark-theme((
+  color: (
+    primary: $ambar-primary,
+    accent: $ambar-accent,
+    warn: $moviv-warn,
+  ),
+  typography:$moviv-typography
+));
+.ambar-theme {
+  @include angular-material-theme($ambar-theme);
+}
+
+// OSCURA THEME
+$oscura-primary: mat-palette($mv-oscura, 400);
+$oscura-accent: mat-palette($mv-ambar, 400, 200, 600);
+$oscura-theme: mat-dark-theme((
+  color: (
+    primary: $oscura-primary,
+    accent: $oscura-accent,
+    warn: $moviv-warn,
+  ),
+  typography:$moviv-typography
+));
+.oscura-theme {
+  @include angular-material-theme($oscura-theme);
+}
 
 
-html, body { height: 100%; font-size:16px }
+
+html, body {
+  height: 100%;
+  font-size:16px;
+  color:#fafafa !important;
+  background: #202020;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
 body { margin: 0; font-family:  'Jost', sans-serif; }
+// p, span, i, input {color:#fafafa}
 h1 { font-weight: 700; font-size: 3em;}
 h2 { font-weight: 700; font-size: 2.5em;}
 h3 { font-family: 'Secular One', sans-serif; font-size: 2em;}

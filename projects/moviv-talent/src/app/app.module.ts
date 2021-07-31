@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment.prod';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp( environment.firebaseConfig ),
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]
