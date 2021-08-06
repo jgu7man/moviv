@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { iWorkspace, Workspace } from '../models/navigation.model';
 
 @Injectable({
@@ -8,7 +9,11 @@ export class NavigationService {
 
   userInteraction: boolean = false;
   backIcon: boolean = false;
-  constructor () { }
+  constructor (
+    private _auth: AngularFireAuth
+  ) {
+
+  }
 
   get(name: Workspace) {
     return this.workspaces.find(d => d.name == name) as iWorkspace;
