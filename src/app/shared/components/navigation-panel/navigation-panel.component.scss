@@ -2,6 +2,11 @@
   flex: 1 1 auto;
 }
 
+mat-drawer {
+  max-width: 250px;
+  width: 20%;
+}
+
 #topbar {
   position:fixed;
   top: 0;

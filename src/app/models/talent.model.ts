@@ -4,6 +4,7 @@ import { iUbication } from "./ubication.model";
 
 export class TalentModel {
   registered: Date | firebase.firestore.Timestamp
+  managers: string[]
   genres: string[]
   categories: string[]
   features: FeatureTalent[]
@@ -11,10 +12,12 @@ export class TalentModel {
   contracts: number
   followers: number
   constructor (
+    manager: string,
     public name: string,
     public logo: iUploadedFile,
     public description: string,
   ) {
+    this.managers = [manager]
     this.registered = new Date();
     this.genres = [];
     this.categories = [];

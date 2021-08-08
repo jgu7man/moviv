@@ -7,6 +7,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { DirectivesModule } from '../directives/directives.module';
 import { NavigationPanelComponent } from './components/navigation-panel/navigation-panel.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     MarxaModule,
     PipesModule,
     DirectivesModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     FirebaseModule,
@@ -30,6 +32,7 @@ import { RouterModule } from '@angular/router';
     PipesModule,
     DirectivesModule,
     NavigationPanelComponent,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

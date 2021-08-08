@@ -1,11 +1,14 @@
-<mat-drawer-container [hasBackdrop]="true" mxBackground="#00000000">
+<mat-drawer-container [hasBackdrop]="responsive.large ? false : true" mxBackground="#00000000">
   <mat-drawer #drawer=matDrawer
+  *ngIf="responsive.large"
   [position]="'start'"
   [mode]="'side'"
-  [opened]="responsive.large ? true : false">
+  [opened]="false">
     <ng-container *ngFor="let view of workspace.views">
       <ng-container *ngIf="view.alike; else aLonely">
-        <a class="side navbtn"
+        <a class="navbtn"
+          mat-button
+          color="primary"
           [routerLink]="[view.route]"
           [routerLinkActive]="'active'"
           [ngClass]="{ active: alikeActive.isActive }"
@@ -21,6 +24,8 @@
       </ng-container>
       <ng-template #aLonely >
         <a class="side navbtn"
+          mat-button
+          color="primary"
           [routerLink]="[view.route]"
           [routerLinkActive]="'active'"
           [queryParams]="view.queryParams"
