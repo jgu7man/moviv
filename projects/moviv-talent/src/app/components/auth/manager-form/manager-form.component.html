@@ -1,0 +1,76 @@
+<form  class="row" [formGroup]="managerForm">
+
+  <!-- CELULAR -->
+  <mat-form-field appearance="outline" class="col s12">
+    <mat-label>Número de celular</mat-label>
+    <input
+    matInput
+    type="text"
+    name="celular"
+    formControlName="celular"
+    required
+    >
+    <mat-error *ngIf="managerForm.hasError('required', 'celular')">
+      Número de celular es necesario
+    </mat-error>
+    <mat-error *ngIf="managerForm.hasError('minlength', 'celular')">
+      El número debe ser de 10 dígitos
+    </mat-error>
+    <mat-error *ngIf="managerForm.hasError('maxlength', 'celular')">
+      El número no debe de pasar de 10 dígitos
+    </mat-error>
+  </mat-form-field>
+
+  <!-- NOMBRE -->
+  <mat-form-field appearance="outline" class="col s12">
+    <mat-label>Nombre del representante</mat-label>
+    <input
+    matInput
+    type="text"
+    name="first_name"
+    formControlName="first_name"
+    required
+    >
+    <mat-error *ngIf="managerForm.hasError('required', 'first_name')">
+     El nombre del representante es necesario
+    </mat-error>
+  </mat-form-field>
+
+  <!-- APELLIDOS -->
+  <mat-form-field appearance="outline" class="col s12">
+    <mat-label>Apellidos</mat-label>
+    <input
+    matInput
+    type="text"
+    name="last_name"
+    formControlName="last_name"
+    required
+    >
+    <mat-error *ngIf="managerForm.hasError('required', 'last_name')">
+     Los apellidos son necesarios
+    </mat-error>
+  </mat-form-field>
+
+  <!-- EMAIL -->
+  <mat-form-field appearance="outline" class="col s12">
+    <mat-label>Email de recuperación</mat-label>
+    <input
+    matInput
+    type="text"
+    name="email"
+    formControlName="email"
+    required
+    >
+    <mat-error *ngIf="managerForm.hasError('required', 'email')">
+     El email es necesario
+    </mat-error>
+  </mat-form-field>
+
+  <div class="col s12 center">
+    <button
+    mat-raised-button color='primary'
+    (click)="submit()"
+    >Enviar</button>
+  </div>
+
+</form>

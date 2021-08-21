@@ -1,0 +1,35 @@
+<div class="container" id="form-container">
+  <div class="row">
+    <div class="col s12">
+      <mat-tab-group #loginTabs="matTabGroup" [selectedIndex]="tabSelected">
+        <mat-tab [disabled]="codeSended">
+          <div class="row" [style.width]="'100%'">
+            <div class="col s12">
+              <h5 class="center">Iniciar sesión</h5>
+            </div>
+            <div class="col s12">
+              <mt-manager-form (onSubmit)="onRegist($event)"></mt-manager-form>
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab [disabled]="!codeSended">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Ingresa el código</mat-card-title>
+              <mat-card-subtitle>
+                Ingresa el código que hemos enviado al número {{celular}}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content >
+              <mt-code-form (onSubmit)="catchVerificationCode($event)"></mt-code-form>
+            </mat-card-content>
+          </mat-card>
+
+
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+<div id="sign-in-button"></div>

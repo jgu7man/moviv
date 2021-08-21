@@ -1,0 +1,44 @@
+<form [formGroup]="codeForm" class="row code-form">
+  <div class="col s2">
+    <mat-form-field appearance="outline">
+      <input matInput class="digit" (keyup)="focusMonitor.focusVia(two, 'keyboard')" type="text" name="one"  #one
+      formControlName="one" minlength="1" maxlength="1" required
+      (keypress)="text.onlyAllow(['numbers'], $event)">
+    </mat-form-field>
+  </div>
+  <div class="col s2">
+    <mat-form-field appearance="outline">
+      <input matInput class="digit" (keyup)="focusMonitor.focusVia(three, 'keyboard')" type="text" name="two" #two
+      formControlName="two" minlength="1" maxlength="1" required
+      (keypress)="text.onlyAllow(['numbers'], $event)">
+    </mat-form-field>
+  </div>
+  <div class="col s2">
+    <mat-form-field appearance="outline">
+      <input matInput class="digit" (keyup)="focusMonitor.focusVia(four, 'keyboard')" type="text" name="three" #three
+      formControlName="three" minlength="1" maxlength="1" required
+      (keypress)="text.onlyAllow(['numbers'], $event)">
+    </mat-form-field>
+  </div>
+  <div class="col s2">
+    <mat-form-field appearance="outline">
+      <input matInput class="digit" (keyup)="focusMonitor.focusVia(five, 'keyboard')" type="text" name="four" #four
+      formControlName="four" minlength="1" maxlength="1" required
+      (keypress)="text.onlyAllow(['numbers'], $event)">
+    </mat-form-field>
+  </div>
+  <div class="col s2">
+    <mat-form-field appearance="outline">
+      <input matInput class="digit" (keyup)="focusMonitor.focusVia(six, 'keyboard')" type="text" name="five" #five
+      formControlName="five" minlength="1" maxlength="1" required
+      (keypress)="text.onlyAllow(['numbers'], $event)">
+    </mat-form-field>
+  </div>
+  <div class="col s2">
+    <mat-form-field appearance="outline">
+      <input matInput class="digit" (keyup)="focusMonitor.focusVia(six, 'keyboard')" type="text" name="six" #six
+      formControlName="six" minlength="1" maxlength="1" required
+      (keypress)="text.onlyAllow(['numbers'], $event)">
+    </mat-form-field>
+  </div>
+</form>

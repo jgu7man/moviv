@@ -8,12 +8,20 @@ import { environment } from 'src/environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegistComponent } from './components/auth/regist/regist.component';
+import { TalentFormComponent } from './components/talent-form/talent-form.component';
+import { ManagerFormComponent } from './components/auth/manager-form/manager-form.component';
+import { CodeFormComponent } from './components/auth/code-form/code-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegistComponent,
+    TalentFormComponent,
+    ManagerFormComponent,
+    CodeFormComponent
   ],
   imports: [
     BrowserModule,

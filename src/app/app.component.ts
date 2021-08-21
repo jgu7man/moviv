@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MxAlert, MxColor, MxText } from "@marxa/devkit";
+import { MxAlert, MxCache, MxColor, MxText } from "@marxa/devkit";
 
 @Component({
   selector: 'app-root',
@@ -11,10 +11,12 @@ export class AppComponent {
   constructor(
     private _color: MxColor,
     private _text: MxText,
-    private _alert: MxAlert
+    private _alert: MxAlert,
+    private _cache: MxCache,
   ) {
     this._alert.storeError = false
     this._text.loadFontAwesome()
+    this._cache.cacheTagName = 'moviv'
     this._color.ColorPalette = {
       main: '#005daa',
       accent: '#09b8a9',

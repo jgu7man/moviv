@@ -491,7 +491,7 @@
       },
       "root": "projects/moviv-talent",
       "sourceRoot": "projects/moviv-talent/src",
-      "prefix": "ma",
+      "prefix": "mt",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

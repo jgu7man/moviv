@@ -1,0 +1,18 @@
+#form-container {
+  max-width: 768px;
+}
+
+::ng-deep {
+  mat-tab-header {
+    display: none !important;
+  }
+  .mat-tab-body-wrapper {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mat-tab-body-content {
+    overflow: hidden;
+  }
+}
