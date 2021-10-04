@@ -3,8 +3,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MxAlert, MxCache } from '@marxa/devkit';
 import { iManager, ManagerModel } from 'src/app/models/managers.model';
-import { Subject } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
+import { switchMap, take, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app'
 
@@ -17,6 +17,7 @@ export class TalentAuthService {
   recaptchaVerifier!: firebase.auth.RecaptchaVerifier
   phoneAuth?: firebase.auth.ConfirmationResult
   catchVerificationCode$: Subject<string> = new Subject()
+  manager$: Observable<iManager | undefined>
   constructor (
     private afAuth: AngularFireAuth,
     private _af: AngularFirestore,
@@ -25,9 +26,14 @@ export class TalentAuthService {
     private _router: Router,
   ) {
     // this.afAuth.signOut()
-    this.afAuth.authState.subscribe( state => {
-      console.log( state?.uid)
-    })
+    this.manager$ = this.afAuth.authState.pipe(
+      tap(console.log),
+      switchMap( user => { return user
+        ? this._af.doc<iManager>( `managers/${ user.uid }` ).valueChanges()
+        : of( undefined )
+        }
+      )
+    )
   }
 
   setCaptcha() {
@@ -127,5 +133,10 @@ export class TalentAuthService {
       return console.error(error)
     }
 
+  }
+
+  signOut() {
+    this.afAuth.signOut()
+    this._router.navigate(['/'])
   }
 }
